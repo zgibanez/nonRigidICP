@@ -33,7 +33,7 @@ while true
     if ~isempty( find(boundary==v) )
         % we have reach the begining of the boundary
         if v~=boundary(1)
-            warning('Begining and end of boundary doesn''t match.');
+            warning('Beginning and end of boundary do not match.');
         else
             break;
         end
