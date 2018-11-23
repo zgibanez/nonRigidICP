@@ -2,10 +2,18 @@ function Data = nricp_custom(Target,Source, preal,rigidAl,pTarget,pSource)
 %Non rigid registration algorithm to math P to Q
 % input:
 % source,target - triangle meshes with vertices and faces indexed
-%
+% preal - perform prealignment
+% rigidAl - perform rigid alignment
+% pTarget - indexes of landmark vertices in target,
+% pSource - indexes on landmark vertices in source
+
 % output:
-% Data - Struct with all the data fields
-% F - faces of transformed source
+% Data - Struct with the data fields
+    % Original template, target
+    % Adapted template
+    % Deformed template at each iteration
+    % Laplace-Beltrami coefficients (for testing small displacements
+    % assumpltion)
 
 
 if(preal)

@@ -136,6 +136,9 @@ Landmarks = readtable([pathname filename]);
 hObject.UserData = Landmarks;
 set(handles.button_template,'Enable','on');
 
+%Set filename for writing
+set(handles.text_landmarks,'UserData',[pathname, filename]);
+
 %Set the names of colums as the popup menu options
 set(handles.popup_feature,'String',Landmarks.Properties.VariableNames(2:end));
 set(handles.text_select,'String','To continue load a template .obj file.');
@@ -345,7 +348,8 @@ else
     landmarkTable = [landmarkTable; newRow];
 end
 %Write the full table on a xls file
-writetable(landmarkTable,'landmarkTest.xls');
+filename = get(handles.text_landmarks,'UserData');
+writetable(landmarkTable,filename);
 
 %Save the table in the GUI information for future annotations
 set(handles.button_landmark,'UserData',landmarkTable);
